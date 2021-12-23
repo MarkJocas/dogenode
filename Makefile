@@ -1,7 +1,7 @@
 #Dockerfile vars
-REPO=jocas
+REPO=reponame
 IMAGENAME=dogenode
-DOGECOIN_VERSION=1.14.4
+DOGECOIN_VERSION=1.14.5
 IMAGEFULLNAME=${REPO}/${IMAGENAME}:${DOGECOIN_VERSION}
 
 .PHONY: help build run push all
@@ -15,7 +15,7 @@ help:
 .DEFAULT_GOAL := all
 
 build:
-	    @docker build --pull --build-arg DOGECOIN_VERSION=1.14.4 -t ${IMAGEFULLNAME} .
+	    @docker build --pull --build-arg DOGECOIN_VERSION=${DOGECOIN_VERSION} -t ${IMAGEFULLNAME} .
 
 push:
 	    @docker push ${IMAGEFULLNAME}
