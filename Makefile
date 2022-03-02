@@ -1,7 +1,8 @@
 #Dockerfile vars
-REPO=reponame
+REPO=jocas
 IMAGENAME=dogenode
 DOGECOIN_VERSION=1.14.5
+DOCKER_NAME=dogenode
 IMAGEFULLNAME=${REPO}/${IMAGENAME}:${DOGECOIN_VERSION}
 
 .PHONY: help build run push all
@@ -21,6 +22,9 @@ push:
 	    @docker push ${IMAGEFULLNAME}
 
 run:
-		@docker run -d --restart unless-stopped --name dogenode -v ~/.dogecoin:/root/.dogecoin ${IMAGEFULLNAME}
+		@docker run --rm -d --name $(DOCKER_NAME) --network host -v ~/.dogecoin:/root/.dogecoin ${IMAGEFULLNAME}
+
+stop:
+		@docker stop $(DOCKER_NAME)
 
 all: build push
