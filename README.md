@@ -24,3 +24,6 @@ Thanks to Dogecoin developers for their great work and DogecoinIsAwesome (which 
 * [dogecoin.com](https://dogecoin.com)
 
 * [DogecoinIsAwesome.com](https://dogecoinisawesome.com/full-node)
+
+## Advanced implementation 🚀
+For more evolved implementation see [dogecoin/docker](https://github.com/dogecoin/docker)
